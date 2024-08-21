@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap">
+<link rel="icon" type="image/png" href="accests/phoneICon.png">
+</head>
+
+<body>
+    <div class="wrapper">
+    <main>
+
+    <!-- header that holds headline and the empty contact list message -->
+    <header class="container">
+        <h1>My Phone Book</h1>
+        <p class="emptyMessage"></p>
+    </header>
+
+    <!-- search contacts -->
+    <input class="search" type="text" id="searchInput" placeholder="Search contact">
+
+    <!-- buttons for adding a contact and for deleting the whole contact list -->
+    <section class="Btns">
+        <button class="B" id="deleteCont" onclick="deleteAll()">
+            <img alt="icon" src="accests/delete all icon.png" style="width: 25px; height: 25px;">
+        </button>
+        <button class="B" type="button" id="addCont" onclick="addOrEdit()">
+            <img alt="icon" src="accests/add contact icon.png" style="width: 25px; height: 25px;">
+        </button>
+    <!-- a button for returning to the original page -->
+        <button class="B" onclick="resetList()">
+            <img alt="icon" src="accests/reset contacts icon.png" style="width: 25px; height: 25px;">
+        </button>
+    </section>
+
+    <!-- contacts list -->
+    <section class="contacts container">
+        <ul class="contact-list" id="phonelist"></ul>
+            <!-- popup window form content -->
+            <div class="popup" id="myPopup" onclick="closePopup(event)">
+                <div class="popup-content">
+                    <form class="contact-form" id="contact-form">
+                        <button class="close-btn" id="closePopupBtn" onclick="closePopup(event)">&times;</button>
+                        <input type="hidden" id="inputIndex"><!-- accepts the index of a contact -->
+                        <input type="text" id="inputName" name="name" placeholder="enter name" required><br>
+                        <input type="email" id="inputEmail" placeholder="enter email"><br>
+                        <input type="tel" id="inputNumber" name="tel" placeholder="enter phone number" required><br>
+                        <input type="text" id="inputAddress" placeholder="enter address"><br>
+                        <input type="url" id="inputImg" name="inputImg" placeholder="enter image"><br>
+                        <textarea id="freeText" placeholder="additional details"></textarea><br>
+                        <p class="warning emptyMessage">Attention! name and phone number are required fields</p><!-- a warning message for the required feilds -->
+                        <button type="submit" class="save" id="saveButton" onclick="saveInfo(event)">Save</button>
+                    </form>
+                </div>
+            </div>
+    </section>
+
+    <!-- information popup -->
+<div class="info popup" id="infoPopup" onclick="closePopup(event)">
+    <div class="popup2 popup-content">
+        <span id="infoName" class="item"></span><br>
+        <span id="infoEmail" class="item"></span><br>
+        <span id="infoNumber" class="item"></span><br>
+        <span id="infoAddress" class="item"></span><br>
+        <span id="infoImg" class="item"></span>
+        <span id="infoText" class="item"></span>
+    </div>
+</div>
+
+<!-- special effect button -->
+<button id="toggleButton">
+    <img alt="icon" src="accests/effect icon.png" style="width: 35px; height: 35px;">
+</button>
+
+</main>
+
+<!-- footer content -->
+    <footer class="footer">
+            <p>&copy; 2024 David @ Neomi</p>
+        </div>
+    </footer>
+
+</div><!-- end wrapper div -->
+
+    <script src="js.js"></script>
+
+</body>
+</html>
